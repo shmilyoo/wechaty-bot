@@ -1,0 +1,33 @@
+{
+  "name": "wechaty-bot",
+  "version": "1.0.0",
+  "description": "a wechat bot to help manage groups and do something else with wechaty",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --respawn --transpileOnly src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shmilyoo/wechaty-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shmilyoo/wechaty-bot/issues"
+  },
+  "homepage": "https://github.com/shmilyoo/wechaty-bot#readme",
+  "dependencies": {
+    "nosql-leveldb": "^3.0.1",
+    "puppeteer": "^1.14.0",
+    "qrcode-terminal": "^0.12.0",
+    "wechaty": "^0.22.6",
+    "wechaty-puppet-padpro": "0.0.57"
+  },
+  "devDependencies": {
+    "@types/node": "^11.13.6",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "typescript": "^3.4.4"
+  }
+}
