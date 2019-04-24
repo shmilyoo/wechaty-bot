@@ -1,6 +1,7 @@
 import { Wechaty, log, Message, Contact } from 'wechaty';
 import { PuppetPadpro } from 'wechaty-puppet-padpro';
 import { FileBox } from 'file-box';
+import * as qtermial from 'qrcode-terminal';
 import { ContactSelf } from 'wechaty/dist/src/user';
 import { onMessage } from './onMessage';
 
@@ -26,7 +27,7 @@ bot.start().catch(async (e: Error) => {
 });
 
 function onScan(qrcode: string) {
-  require('qrcode-terminal').generate(qrcode, { small: true });
+  qtermial.generate(qrcode, { small: true });
   console.log(`Scan QR Code above to log in: `);
 }
 
