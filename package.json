@@ -19,8 +19,7 @@
   },
   "homepage": "https://github.com/shmilyoo/wechaty-bot#readme",
   "dependencies": {
-    "nosql-leveldb": "^3.0.1",
-    "puppeteer": "^1.14.0",
+    "file-box": "^0.8.27",
     "qrcode-terminal": "^0.12.0",
     "wechaty": "^0.22.6",
     "wechaty-puppet-padpro": "0.0.57"

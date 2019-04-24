@@ -1,7 +1,6 @@
 import { Wechaty, log, Message, Contact } from 'wechaty';
 import { PuppetPadpro } from 'wechaty-puppet-padpro';
 import { FileBox } from 'file-box';
-import qrTerm from 'qrcode-terminal';
 import { ContactSelf } from 'wechaty/dist/src/user';
 import { onMessage } from './onMessage';
 
@@ -11,14 +10,12 @@ const puppet = new PuppetPadpro({
   token: WECHATY_PUPPET_PADPRO_TOKEN
 });
 
-const bot = new Wechaty({
-  puppet
-});
+const bot = new Wechaty({ puppet });
 
 bot
   .on('logout', onLogout)
   .on('login', onLogin)
-  .on('scan', code => {})
+  .on('scan', onScan)
   .on('error', onError)
   .on('message', onMessage);
 
@@ -29,7 +26,7 @@ bot.start().catch(async (e: Error) => {
 });
 
 function onScan(qrcode: string) {
-  // qrTerm.generate(qrcode, { small: true });
+  require('qrcode-terminal').generate(qrcode, { small: true });
   console.log(`Scan QR Code above to log in: `);
 }
 
@@ -38,12 +35,12 @@ function onLogin(user: ContactSelf) {
   bot.say('Wechaty login').catch(console.error);
 }
 
-function onLogout(user: ContactSelf) {
+async function onLogout(user: ContactSelf) {
   console.log(`${user.name()} logouted`);
+  await this.stop();
+  process.exit(-1);
 }
 
 function onError(e: Error) {
   console.error('Bot error:', e);
 }
-
-[].map(v => {});

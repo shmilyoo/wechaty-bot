@@ -1,0 +1,11 @@
+{
+  "admin": ["adminID"],
+  "groupsOnCharge": [
+    {
+      "name": "group1",
+      "isAdmin": true,
+      "stat": true,
+      "admin": ["admin1", "admin2"]
+    }
+  ]
+}
